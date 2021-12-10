@@ -367,47 +367,7 @@ In addition to the lambda code, the configurations for Lambda function and the R
   </tr>
 </table>
 
-## Module-0E: Run your serverless application locally with SAM Local
-
-1. After reviewing the code, under **src/app/dbUtils.js**, replace the *host* with the Aurora endpoint. Then save the file (⌘+s for Mac or Ctrl+s for Windows or File -> Save)
-   
-   <img src="images/0D-db-endpoint-in-code.png" width="70%" />
-
-   :bulb: when you have unsaved changes in a file, cloud9 will show a grey dot next to the file name:
-   
-   <img src="images/0E-unsaved.png" width="50%" />
-   
-   When you successfully save the changes, the dot will turn green and then disappear.
-
-   After doing this, it's time to test your API locally using SAM Local. 
-
-1. On the **right panel**, click on **AWS Resources**. 
-
-	<img src="images/0D-aws-resource-bar.png" width="80%" />
-
-1. You should see a folder tree with the name *Local Functions (1)*. 
-1. Select **UnicornPartsFunction** under the `src` folder
-1. Once you have selected the function, click on the dropdown on the panel on the top, and select **Run APIGateway Local**  
-
-	<img src="images/0D-run-apigateway-local.png" width="40%" />
-
-1. Then, click on the play icon. You will get a new panel to test the API locally. 
-
-1. In the **Path** parameter of this new panel, you should see it filled as `/socks`. If not, pick any of the unicorn parts (e.g `/socks`, `/glasses`, `/capes`, `/horns`) and click **Run**.
-
-	> The first time you test the API locally, it could take up to 1-2 minutes to fully initialize due to Docker being setup with a Docker image being pulled down. 
-
-	
-	You should be able to get a `200 OK` response with values back for the body part you queried. 
-	
-	Example screenshot:
-	
-	![Local Queries](images/0E-sam-local-result.png)
-	
-
-	This indicates that the application run successfully within your Cloud9 environment (locally). Now it's time to deploy your Serverless application!
-
-## Module-0F: Deploy and test your Serverless application in the cloud
+## Module-0E: Deploy and test your Serverless application in the cloud
 
 1. Retrieve the name of the S3 bucket the CloudFormation stack has created earlier:
 
@@ -503,7 +463,7 @@ https://rs86gmk5bf.execute-api.us-west-2.amazonaws.com/dev/
 	![test api in browser](images/0E-test-browser.png)
 
 	
-## Module-0G: Set up Postman to test the API 
+## Module-0F: Set up Postman to test the API 
 
 
 We will use [**Postman**](https://www.getpostman.com/) for the rest of the workshop for testing API requests. 
