@@ -49,42 +49,8 @@ In addition, it also creates the below resources
 * A **S3 bucket** you will later use for packaging and uploading lambda function code 
 * A **Security Group** that will be used by the lambda functions
 
-**Choose and click on the option below according to your situation and follow its instructions:**
 
-If you are completing this workshop at an AWS-sponsored event where an AWS account is provided for you, you will be using **AWS Event Engine**. Choose **Option 1** below. Otherwise, choose **Option 2**. 
-<details>
-<summary><strong> Option 1: If you are using AWS Event Engine </strong></summary><p>
-If you are using AWS Event Engine, an AWS CloudFormation stack should be automatically created for you.
- 
- 
-1. Go to [https://dashboard.eventengine.run](https://dashboard.eventengine.run)
-1. In the next screen, put in the hash code you received from the event organizer, and click **Proceed**
-
-   ![event-engine-login](images/00-event-engine-login.png)
-
-1. Log into the the AWS console in the event engine account by clicking on **AWS Console**
-
-   ![](images/00-event-engine-console-login.png)
-
-1. Click on **Open AWS Console** or use the **Copy Login Link** button and open the copied URL in **Chrome** or **Firefox**
-    
-    ![](images/00-event-engine-console-login-2.png)
-    
-1. Type in `CloudFormation` in the **Find Services** search bar to go to the CloudFormation console
-1. You should see 2 stacks that have been created:
-   * one named something like `mod-3269ecbd5edf43ac` This is the ***main setup stack*** containing the setup resources.
-   * one with name similar to `aws-cloud9-Secure-Serverless-Cloud9-<alphanumeric-letters>`. This is a nested stack responsible for creating the Cloud9 environment.
-1. Select the ***main setup stack*** (name starting with `mod-`), go to the **Outputs** tab. Keep this browser tab open as you go through rest of the workshop. 
-
-    ![](images/00-ee-cloudformation.png)
-    
-</details>
-
-<details>
-<summary><strong> Option 2: If you are working in your own AWS account</strong></summary><p>
-
-
-If you are working in your own AWS account, follow the steps below to launch a CloudFormation template that will set up initial resources for you
+Follow the steps below to launch a CloudFormation template that will set up initial resources for you
 
 1. Select the desired region. Since we are going to use services like Aurora or Cloud9, please choose one of these following and click the corresponding **Launch Stack** link
 
@@ -92,9 +58,7 @@ If you are working in your own AWS account, follow the steps below to launch a C
 
 	Region| Code | Launch
 	------|------|-------
-	EU (Ireland) | <span style="font-family:'Courier';">eu-west-1</span> | [![Launch setup resource in eu-west-1](images/cfn-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=Secure-Serverless&templateURL=https://s3.amazonaws.com/wildrydes-us-east-1/Security/init-template.yml)
-	US West (Oregon) | <span style="font-family:'Courier';">us-west-2</span> | [![Launch setup resource in us-west-2](images/cfn-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=Secure-Serverless&templateURL=https://s3.amazonaws.com/wildrydes-us-east-1/Security/init-template.yml)
-	US East (N. Virginia) | <span style="font-family:'Courier';">us-east-1</span> | [![Launch setup resource in us-east-1](images/cfn-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Secure-Serverless&templateURL=https://s3.amazonaws.com/wildrydes-us-east-1/Security/init-template.yml)
+	EU (Ireland) | <span style="font-family:'Courier';">eu-west-1</span> | [![Launch setup resource in eu-west-1](images/cfn-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=Secure-Serverless&templateURL=https://security-serverless-lab.s3.eu-west-1.amazonaws.com/serverless-lab.yaml)
 
 1. 	Click **Next**
 1. In the **Step 2: Specify stack details** page:
