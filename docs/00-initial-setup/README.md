@@ -58,7 +58,7 @@ Follow the steps below to launch a CloudFormation template that will set up init
 
 	Region| Code | Launch
 	------|------|-------
-	EU (Ireland) | <span style="font-family:'Courier';">eu-west-1</span> | [![Launch setup resource in eu-west-1](images/cfn-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=Secure-Serverless&templateURL=https://security-serverless-lab.s3.eu-west-1.amazonaws.com/infrastructure.yaml)
+	EU (Ireland) | <span style="font-family:'Courier';">eu-west-1</span> | [![Launch setup resource in eu-west-1](images/cfn-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=Secure-Serverless&templateURL=s3://security-serverless-lab/infrastructure.yaml)
 
 1. 	Click **Next**
 1. In the **Step 2: Specify stack details** page:
