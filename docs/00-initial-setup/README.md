@@ -52,7 +52,7 @@ In addition, it also creates the below resources
 
 Follow the steps below to launch a CloudFormation template that will set up initial resources for you
 
-1. Select the desired region. Since we are going to use services like Aurora or Cloud9, please choose one of these following and click the corresponding **Launch Stack** link
+1. Click the corresponding **Launch Stack** link
 
 	&#128161; **When clicking on any link in this instruction, hold the ⌘ (mac) or Ctrl (Windows) so the links open in a new tab** &#128161;
 
