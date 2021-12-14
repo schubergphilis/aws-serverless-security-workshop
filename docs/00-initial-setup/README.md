@@ -254,6 +254,9 @@ The `src/app` folder has a few files:
 - **customizeUnicorn.js**: Main file for the lambda function that handles the create/describe/delete operations for a unicorn customization configuration.
 - **dbUtils.js**: This file contains all the database/query logic of the application. It also contains all the connection requirements in plain text (that's suspicious!)
 
+On dbUtils.js we need to update the host variable with the actual aurora url we saved from the cloudformation outputs. 
+
+**const host = "secure-aurora-cluster.cluster-xxxxxxx.xxxxxxx.rds.amazonaws.com"**
 
 Review them by navigating the file explorer sidebar in Cloud9:
 
