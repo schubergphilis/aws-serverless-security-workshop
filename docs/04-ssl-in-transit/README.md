@@ -75,7 +75,7 @@ You can require SSL connections for specific users accounts\. For example, you c
 
 
 ```
-ALTER USER 'encrypted_user'@'%' REQUIRE SSL;            
+GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL;           
 ```
 For more information on SSL connections with MySQL, go to the [MySQL documentation](https://dev.mysql.com/doc/refman/5.6/en/secure-connections.html)\.
 
