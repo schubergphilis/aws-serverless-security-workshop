@@ -187,7 +187,7 @@ Now, deploy the changes and verify:
 
 
 
-## Module 5E (Optional): Test throttling behavior with postman
+## Module 5D (Optional): Test throttling behavior with postman
 
 &#9888; **Caution: You would need to add the x-api-key header to each of the API in the collection first!** &#9888;
 
