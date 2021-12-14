@@ -74,8 +74,8 @@ Now, we need to modify our API gateway so requests must have an API key present.
 
 1. In the API swagger definition in `template.yaml`, add the below lines to add an additional type of AWS security: 
 
-	```yaml
-		      ApiKey:
+	```
+		  ApiKey:
 	            type: apiKey
 	            name: x-api-key
 	            in: header
