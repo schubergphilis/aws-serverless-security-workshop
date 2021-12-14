@@ -71,20 +71,12 @@ Once this is done, you should be able to connect to the database using SSL.
 
 ## Ensure SSL - Optional step
 
-You can require SSL connections for specific users accounts\. For example, you can use one of the following statements, depending on your MySQL version, to require SSL connections on the user account `encrypted_user`\.
+You can require SSL connections for specific users accounts\. For example, you can use the following statement, to require SSL connections on the user account `encrypted_user`\.
 
-For MySQL 5\.7 and later:
 
 ```
 ALTER USER 'encrypted_user'@'%' REQUIRE SSL;            
 ```
-
-For MySQL 5\.6 and earlier:
-
-```
-GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL;            
-```
-
 For more information on SSL connections with MySQL, go to the [MySQL documentation](https://dev.mysql.com/doc/refman/5.6/en/secure-connections.html)\.
 
 To find the MySQL version of the Aurora database, go to the RDS console and find the **Engine version** under **Configuration** tab of the database cluster:
