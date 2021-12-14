@@ -185,49 +185,11 @@ Now, deploy the changes and verify:
 	<img src="images/5C-explicit-API-key.png" /> 
 
 
-## Module 5D (Optional): Use the Lambda authorizer to provide the API key
-
-
-&#9888; **Caution: This optional module assumes you have completed Module 1** &#9888;
-
-If you have already completed module 1: to make the API consumer's life easier, instead of forcing them to add a separate `x-api-key` header to the request they are making, we can make API Gateway take the API Key from the lambda authorizer. Read more about the two sources of API keys supported by API gateway [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-key-source.html)
-
-To make this work:
-
-1. In the API swagger definition in template.yaml, add the below lines
-	
-	```
-	x-amazon-apigateway-api-key-source: AUTHORIZER
-	```
-	
-  	to the same level as the `securityDefinitions` or `paths` field: 
-  	
-	<img src="images/5D-api-source-authorizer-swagger.png" /> 
-	
-1. We also need to make the Lambda authorizer return the API Key as part of the auth response. To do so, go to `authorizer/index.js`, find the following line in the code, and uncomment the second line:  
-
-                        // Uncomment here to pass on the client ID as the api key in the auth response
-                        // authResponse.usageIdentifierKey = payload["client_id"];
-
-1. Validate the SAM template:
-
-	```
-	sam validate -t template.yaml
-	```
-
-1.  Deploy the updates:
-
-	```
-	 aws cloudformation package --output-template-file packaged.yaml --template-file template.yaml --s3-bucket $BUCKET --s3-prefix securityworkshop --region $REGION &&  aws cloudformation  deploy --template-file packaged.yaml --stack-name CustomizeUnicorns --region $REGION --parameter-overrides InitResourceStack=Secure-Serverless --capabilities CAPABILITY_IAM
-	```
-
-1. Once the deployment finishes, test making API requests again with postman. You should now be able to remove the `x-api-key` request header and the request should be able to succeed. 
-
 
 
 ## Module 5E (Optional): Test throttling behavior with postman
 
-&#9888; **Caution: This optional module assumes you have completed Module 1 and Module 5D! If you have not done those two, you would need to add the x-api-key header to each of the API in the collection first!** &#9888;
+&#9888; **Caution: You would need to add the x-api-key header to each of the API in the collection first!** &#9888;
 
 You can use postman to send multiple API requests in sequence. 
 
