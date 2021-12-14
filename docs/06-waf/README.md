@@ -5,68 +5,6 @@ AWS WAF is a web application firewall that helps protect your web applications f
 
 In this module, you will create a WAF ACL and attach it to the API Gateway we created.
 
-### Module 6 - Optional: attack your API with SQL injection!
-
-If you have completed **Module 3: Input validation on API Gateway**, your API now has some basic input validation in place for the JSON request body. However, it turns out our application is still vulnerable to SQL injection attacks as part of the request URI. This optional module shows how you can perform the attack.
-
-<details>
-<summary><strong>Click to expand for optional step instructions </strong></summary>
-
-
-1. In Postman, go to the **GET Custom_Unicorn** request. Change the request URL to include a SQL injection in the request URI: 
-
-	```
-	{{base_url}}/customizations/1; drop table Custom_Unicorns;
-	```
-
-	and Click **Send**. 
-
-	![screenshot](images/SQLi-attack-success.png)
-
-	You may get a "`Error querying`" response back because the SQL injection messed up the database query so not all of it succeeded (you can check the Cloudwatch Logs for the **CustomizeUnicorns-CustomizeUnicornFunction** Lambda function on what SQL queries got executed). However, the injected query to drop the `Custom_Unicorns` table should have succeeded. 
-
-1. If you now try to submit some valid quests, such as LIST or POST customizations, you will now get error back, because the `Custom_Unicorns` table got dropped by our evil attack! 
-
-1. To recover from this, go to your cloud9 browser tab, connect to the database again through the mysql command line 
-	
-	```
-	 cd ~/environment/aws-serverless-security-workshop/src
-	 mysql -h <replace-with-your-aurora-cluster-endpoint> -u admin -p
-	```
-	
-	If you have gone through Module 4 and set the DB to require the `admin` user to use  
-
-	type in the DB password (if you have gone through **Module 2: Secrets Manager**, your DB password may have been rotated by Secrets Manager. You can retrieve the new password by going to the Secrets Manager and click on the **Retrieve secret value** button 
-
-1. In the MySQL cli prompt, you can run the show tables command to verify the `Custom_Unicorns` table is gone: 
-
-	```
-	use unicorn_customization;
-	show tables;
-	```
-	See screenshot: 
-	
-	![screenshot](images/recreate-table.png)
-	
-1. Rerun the DB initialization script to recreate the `Custom_Unicorns` table:
-
-	```
-	drop table Capes, Glasses, Horns, Socks;
-	source init/db/queries.sql;
-	```
-	
-	> You should see the output includes this error message: 
-	>```ERROR 1062 (23000): Duplicate entry 'Placeholder company' for key 'NAME'```
-	> This is expected because we didn't want to overwrite the `company` table. You can ignore the error message 
-	
-	
-6. List the tables again to verify the `Custom_Unicorns` table is recreated. 
-
-	```
-	show tables;
-	```
-
-</details>
 
 ### Module 6A: Create a WAF ACL 
 
