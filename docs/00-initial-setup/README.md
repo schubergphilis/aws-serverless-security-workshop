@@ -256,9 +256,9 @@ The `src/app` folder has a few files:
 
 On dbUtils.js we need to update the host variable with the actual aurora url we saved from the cloudformation outputs. 
 
-	```sh
+	
 	const host = "secure-aurora-cluster.cluster-xxxxxxx.xxxxxxx.rds.amazonaws.com" -> "NEW_AURORA_URL"
-	```
+	
 
 Review them by navigating the file explorer sidebar in Cloud9:
 
